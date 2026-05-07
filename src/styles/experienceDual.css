@@ -1,0 +1,116 @@
+/**
+ * 双域协同布局：左侧约 30% 操作区（触控 / 选资源）+ 右侧约 70% 展示区（预览 / 实时画面）
+ */
+
+.exp-dual {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: clamp(14px, 2vw, 26px);
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+}
+
+.exp-op {
+  flex: 0 0 clamp(260px, 28vw, 380px);
+  max-width: 38%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: clamp(14px, 2vw, 22px);
+  background: rgba(13, 71, 161, 0.38);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.exp-op-head {
+  flex-shrink: 0;
+}
+
+.exp-op-badge {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  color: rgba(255, 255, 255, 0.48);
+  margin-bottom: 8px;
+}
+
+.exp-op-title {
+  margin: 0;
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.35;
+}
+
+.exp-op-desc {
+  margin: 8px 0 0;
+  font-size: clamp(15px, 1.45vw, 18px);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.exp-display {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(12px, 2vw, 24px);
+  border-radius: 20px;
+  border: 1px solid rgba(0, 191, 165, 0.28);
+  background: rgba(0, 0, 0, 0.22);
+  box-shadow: inset 0 0 80px rgba(0, 191, 165, 0.06);
+}
+
+.exp-display-tag {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  z-index: 3;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.72);
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.exp-permission-tip {
+  flex-shrink: 0;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255, 193, 7, 0.1);
+  border: 1px solid rgba(255, 193, 7, 0.28);
+  font-size: clamp(15px, 1.35vw, 18px);
+  font-weight: 600;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+@media (max-width: 960px) {
+  .exp-dual {
+    flex-direction: column;
+  }
+
+  .exp-op {
+    flex: none;
+    max-width: none;
+    width: 100%;
+    max-height: 46vh;
+  }
+
+  .exp-display {
+    flex: 1;
+    min-height: 280px;
+  }
+}

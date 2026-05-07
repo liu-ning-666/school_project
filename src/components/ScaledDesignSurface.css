@@ -1,0 +1,28 @@
+/* 设计稿画布：外层铺满视口（或父级全屏），内层固定 1920×1080 再 scale */
+
+.scaled-design-outer {
+  width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 首页：叠在粒子背景之上，填满 display-container */
+.scaled-design-outer--fullscreen {
+  position: absolute;
+  inset: 0;
+  width: auto;
+  height: auto;
+  min-height: 0;
+  z-index: 10;
+}
+
+.scaled-design-inner {
+  flex-shrink: 0;
+  transform-origin: center center;
+  position: relative;
+  will-change: transform;
+}

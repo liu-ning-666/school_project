@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+:root {
+  --primary-dark: #0D47A1;
+  --tech-cyan: #00BFA5;
+  --gold: #FFC107;
+  --green: #4CAF50;
+  --red: #FF5252;
+  --gray: #9E9E9E;
+  --white: #FFFFFF;
+  --black-bg: #121212;
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --safe-margin: 50px;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 50%, #0a1628 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+}

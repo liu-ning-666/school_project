@@ -1,0 +1,723 @@
+/* UI2/UI/UI/avatar-select.html 样式迁入，根命名空间 .avatar-select-ui2 */
+
+.avatar-select-ui2,
+.avatar-select-ui2 * {
+  box-sizing: border-box;
+}
+
+.avatar-select-ui2 {
+  --primary-dark: #0d47a1;
+  --tech-cyan: #00bfa5;
+  --gold: #ffc107;
+  --danger-red: #ff5252;
+  --success-green: #4caf50;
+  --white: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --gray-bg: rgba(100, 100, 100, 0.3);
+
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  margin: 0;
+  background: #121212;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+.avatar-select-ui2 .as2-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.avatar-select-ui2 .cultural-pattern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(13, 71, 161, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 191, 165, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 193, 7, 0.03) 0%, transparent 70%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.avatar-select-ui2 .golden-cloud {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cdefs%3E%3Cfilter id='f' x='0' y='0' width='200%25' height='200%25'%3E%3CfeGaussianBlur in='SourceGraphic' stdDeviation='2'/%3E%3C/filter%3E%3C/defs%3E%3Cpath d='M100 200 Q150 100 200 200 Q250 300 300 200' fill='none' stroke='rgba(255,193,7,0.05)' stroke-width='2' filter='url(%23f)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 400px 400px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.avatar-select-ui2 .main-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 10;
+  padding: clamp(24px, 2.6vw, 50px);
+  display: flex;
+  flex-direction: column;
+}
+
+.avatar-select-ui2 .top-nav {
+  height: auto;
+  min-height: 100px;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: clamp(8px, 1.2vw, 16px);
+  padding: clamp(12px, 2vw, 20px) clamp(16px, 3vw, 36px);
+  margin-bottom: 20px;
+}
+
+.avatar-select-ui2 .nav-btn {
+  height: 60px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: bold;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  min-width: min(140px, 28vw);
+  padding: 0 clamp(10px, 1.5vw, 18px);
+  box-sizing: border-box;
+}
+
+.avatar-select-ui2 .nav-btn.back {
+  grid-column: 1;
+  justify-self: start;
+  background: rgba(100, 100, 100, 0.4);
+  color: white;
+}
+
+.avatar-select-ui2 .nav-btn.back:hover {
+  background: rgba(100, 100, 100, 0.6);
+  transform: scale(1.02);
+}
+
+.avatar-select-ui2 .nav-btn.random {
+  grid-column: 3;
+  justify-self: end;
+  gap: 8px;
+  white-space: nowrap;
+  background: linear-gradient(90deg, #ffc107, #ffa000);
+  color: white;
+  min-width: min(168px, 34vw);
+}
+
+.avatar-select-ui2 .nav-btn-random-ico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05em;
+  line-height: 1;
+  transform: translateY(1px);
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+}
+
+.avatar-select-ui2 .nav-btn-random-label {
+  line-height: 1;
+}
+
+.avatar-select-ui2 .nav-btn.random:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 30px rgba(255, 193, 7, 0.5);
+}
+
+.avatar-select-ui2 .nav-title {
+  grid-column: 2;
+  justify-self: center;
+  max-width: min(56vw, 720px);
+  font-size: clamp(22px, 3.4vw, 46px);
+  font-weight: bold;
+  color: white;
+  letter-spacing: clamp(0px, 0.12vw, 2px);
+  margin: 0;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.avatar-select-ui2 .center-preview {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  position: relative;
+  padding: 8px 12px;
+}
+
+.avatar-select-ui2 .preview-box {
+  width: 100%;
+  max-width: min(1020px, 94vw);
+  flex: 1;
+  min-height: min(480px, 48vh);
+  max-height: min(920px, calc(100vh - 190px));
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 32px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 20px 28px 108px;
+  box-sizing: border-box;
+  perspective: 1200px;
+}
+
+.avatar-select-ui2 .preview-avatar-stage {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-select-ui2 .preview-avatar {
+  font-size: clamp(72px, min(13vw, 20vh), 220px);
+  animation: as2-avatarRock 5s ease-in-out infinite;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center center;
+  max-width: 100%;
+}
+
+.avatar-select-ui2 .preview-avatar:hover {
+  animation-play-state: paused;
+  transform: scale(1.08);
+}
+
+/* 不用整圈 rotateY，否则 emoji 侧面会变成一条线 */
+@keyframes as2-avatarRock {
+  0%,
+  100% {
+    transform: rotateY(-10deg);
+  }
+  50% {
+    transform: rotateY(10deg);
+  }
+}
+
+.avatar-select-ui2 .preview-name {
+  position: absolute;
+  bottom: 56px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 48px);
+  max-width: 42rem;
+  box-sizing: border-box;
+  font-size: clamp(22px, 2.8vw, 34px);
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  line-height: 1.35;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  pointer-events: none;
+}
+
+.avatar-select-ui2 .preview-hint {
+  position: absolute;
+  bottom: 22px;
+  right: clamp(12px, 2vw, 28px);
+  left: auto;
+  max-width: min(280px, 42%);
+  font-size: clamp(16px, 1.8vw, 22px);
+  color: rgba(255, 255, 255, 0.7);
+  text-align: right;
+  line-height: 1.25;
+  pointer-events: none;
+}
+
+.avatar-select-ui2 .category-panel {
+  position: absolute;
+  left: clamp(16px, 2.6vw, 50px);
+  top: clamp(140px, 15.8%, 170px);
+  width: min(280px, 22vw);
+  height: auto;
+  max-height: calc(100% - 140px);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.avatar-select-ui2 .category-btn {
+  height: 80px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: clamp(22px, 2vw, 32px);
+  font-weight: bold;
+  transition: all 0.2s ease;
+  background: rgba(100, 100, 100, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.avatar-select-ui2 .category-btn:hover {
+  background: rgba(100, 100, 100, 0.5);
+}
+
+.avatar-select-ui2 .category-btn.active {
+  background: linear-gradient(135deg, var(--primary-dark), var(--tech-cyan));
+  color: white;
+  box-shadow: 0 0 30px rgba(0, 191, 165, 0.4);
+}
+
+.avatar-select-ui2 .category-panel.category-panel--gender {
+  justify-content: flex-start;
+  gap: 24px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.avatar-select-ui2 .gender-panel-label {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.55);
+  text-align: center;
+  letter-spacing: 0.12em;
+}
+
+.avatar-select-ui2 .resource-panel {
+  position: absolute;
+  right: clamp(16px, 2.6vw, 50px);
+  top: clamp(140px, 15.8%, 170px);
+  width: min(280px, 22vw);
+  height: auto;
+  max-height: calc(100% - 140px);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.avatar-select-ui2 .resource-scroll {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-content: flex-start;
+  flex: 0 1 auto;
+  max-height: min(520px, calc(100vh - 240px));
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 10px;
+}
+
+.avatar-select-ui2 .resource-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.avatar-select-ui2 .resource-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.avatar-select-ui2 .resource-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.avatar-select-ui2 .resource-card {
+  width: 120px;
+  min-height: 160px;
+  height: auto;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.avatar-select-ui2 .resource-card:hover {
+  transform: scale(1.05);
+  border-color: rgba(0, 191, 165, 0.5);
+}
+
+.avatar-select-ui2 .resource-card.selected {
+  border-color: var(--tech-cyan);
+  border-width: 3px;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 191, 165, 0.5);
+}
+
+.avatar-select-ui2 .resource-card.selected::after {
+  content: '✓';
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 30px;
+  height: 30px;
+  background: var(--success-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: white;
+}
+
+.avatar-select-ui2 .resource-thumb {
+  width: 100%;
+  height: 128px;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(13, 71, 161, 0.3), rgba(0, 191, 165, 0.3));
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+}
+
+/* 图标区域收缩到字形宽度 + 网格居中，避免「满宽 flex 子元素 + emoji 度量」造成视觉上偏左 */
+.avatar-select-ui2 .resource-thumb-icon {
+  display: block;
+  font-size: 40px;
+  line-height: 1;
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+  text-align: center;
+}
+
+.avatar-select-ui2 .resource-name {
+  width: 100%;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(16px, 1.5vw, 19px);
+  color: white;
+  text-align: center;
+  padding: 8px 6px 10px;
+  line-height: 1.3;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.avatar-select-ui2 .bottom-bar {
+  min-height: 120px;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 2.5vw, 40px);
+  margin-top: 20px;
+  padding: 16px clamp(12px, 3vw, 32px);
+  box-sizing: border-box;
+}
+
+.avatar-select-ui2 .action-btn {
+  height: 80px;
+  border-radius: 24px;
+  border: none;
+  cursor: pointer;
+  font-size: clamp(26px, 2.6vw, 34px);
+  font-weight: bold;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: min(420px, 44vw);
+}
+
+.avatar-select-ui2 .action-btn.save {
+  background: linear-gradient(135deg, rgba(100, 100, 100, 0.5), rgba(80, 80, 80, 0.5));
+  color: white;
+}
+
+.avatar-select-ui2 .action-btn.save:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(100, 100, 100, 0.5);
+}
+
+.avatar-select-ui2 .action-btn.start {
+  background: linear-gradient(135deg, var(--primary-dark), var(--tech-cyan));
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.avatar-select-ui2 .action-btn.start::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 70%
+  );
+  animation: as2-shine 3s linear infinite;
+}
+
+@keyframes as2-shine {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+.avatar-select-ui2 .action-btn.start:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 40px rgba(0, 191, 165, 0.6);
+}
+
+.avatar-select-ui2 .action-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.avatar-select-ui2 .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: as2-fadeIn 0.2s ease;
+}
+
+@keyframes as2-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.avatar-select-ui2 .modal {
+  background: white;
+  border-radius: 32px;
+  padding: 40px;
+  text-align: center;
+  animation: as2-scaleIn 0.3s ease;
+}
+
+@keyframes as2-scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.avatar-select-ui2 .modal-confirm {
+  width: 500px;
+  padding: 50px 40px;
+}
+
+.avatar-select-ui2 .modal-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.avatar-select-ui2 .modal-content {
+  font-size: 28px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.avatar-select-ui2 .modal-buttons {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+.avatar-select-ui2 .modal-btn {
+  padding: 15px 40px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  font-size: 28px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.avatar-select-ui2 .modal-btn.cancel {
+  background: rgba(100, 100, 100, 0.3);
+  color: white;
+}
+
+.avatar-select-ui2 .modal-btn.cancel:hover {
+  background: rgba(100, 100, 100, 0.5);
+}
+
+.avatar-select-ui2 .modal-btn.confirm {
+  background: var(--danger-red);
+  color: white;
+}
+
+.avatar-select-ui2 .modal-btn.confirm:hover {
+  background: #ff1744;
+}
+
+.avatar-select-ui2 .modal-success {
+  width: 400px;
+  padding: 40px;
+}
+
+.avatar-select-ui2 .success-icon {
+  font-size: 60px;
+  margin-bottom: 15px;
+}
+
+.avatar-select-ui2 .success-text {
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--success-green);
+}
+
+.avatar-select-ui2 .screensaver {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #121212;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease;
+}
+
+.avatar-select-ui2 .screensaver.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.avatar-select-ui2 .screensaver-avatar {
+  font-size: 200px;
+  animation: as2-dance 1s ease-in-out infinite;
+}
+
+@keyframes as2-dance {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(5deg);
+  }
+}
+
+.avatar-select-ui2 .screensaver-text {
+  font-size: 36px;
+  color: var(--tech-cyan);
+  margin-top: 40px;
+  animation: as2-textGlow 2s ease-in-out infinite;
+}
+
+@keyframes as2-textGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 20px var(--tech-cyan);
+  }
+  50% {
+    text-shadow:
+      0 0 40px var(--tech-cyan),
+      0 0 60px var(--gold);
+  }
+}
+
+.avatar-select-ui2 .screensaver-hint {
+  position: absolute;
+  bottom: 100px;
+  font-size: 28px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.avatar-select-ui2 .nav-btn:active,
+.avatar-select-ui2 .category-btn:active,
+.avatar-select-ui2 .resource-card:active,
+.avatar-select-ui2 .action-btn:active,
+.avatar-select-ui2 .modal-btn:active {
+  transform: scale(0.95) !important;
+}
+
+@media (max-width: 1200px) {
+  .avatar-select-ui2 .category-panel,
+  .avatar-select-ui2 .resource-panel {
+    width: min(240px, 26vw);
+  }
+}
